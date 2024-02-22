@@ -701,7 +701,6 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
         };
       }>;
     icon: Attribute.String &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
@@ -724,6 +723,18 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
           localized: false;
         };
       }>;
+    categories: Attribute.Relation<
+      'api::category.category',
+      'oneToMany',
+      'api::category.category'
+    >;
+    isMainCategory: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

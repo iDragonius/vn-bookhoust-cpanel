@@ -31,7 +31,7 @@
         }
       },
       "type": "string",
-      "required": true
+      "required": false
     },
     "position": {
       "pluginOptions": {
@@ -59,6 +59,20 @@
           "localized": false
         }
       }
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category.category"
+    },
+    "isMainCategory": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "boolean",
+      "default": false
     }
   }
 }
